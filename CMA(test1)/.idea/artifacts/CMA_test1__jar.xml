@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CMA(test1):jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CMA_test1__jar</output-path>
+    <root id="archive" name="CMA(test1).jar">
+      <element id="module-output" name="CMA(test1)" />
+    </root>
+  </artifact>
+</component>

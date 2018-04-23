@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CMA(test2):jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CMA_test2__jar</output-path>
+    <root id="archive" name="CMA(test2).jar">
+      <element id="module-output" name="CMA(test2)" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../SQLite JAR/sqlite-jdbc-3.21.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
