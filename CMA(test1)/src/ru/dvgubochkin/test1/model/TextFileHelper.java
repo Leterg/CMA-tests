@@ -34,9 +34,7 @@ public class TextFileHelper {
                         throws IOException {
                     /* if(Files.probeContentType(file).equalsIgnoreCase("text/plain")){
                     * Будем выбирать по расширению:* */
-                    System.out.println("\t"+file);
-                        if (file.toString().endsWith(".txt")){
-                        System.out.println(file);
+			if (file.toString().endsWith(".txt")){
                     textFileData.add(new TextFile(file));
                     }
                     return FileVisitResult.CONTINUE;
@@ -65,7 +63,7 @@ public class TextFileHelper {
         List<String> mergedText = new ArrayList<>();
         for (TextFile textFile:textFileData){
             try {
-                mergedText.addAll(Files.readAllLines(textFile.getPath(), Charset.forName("windows-1251")));
+                mergedText.addAll(Files.readAllLines(textFile.getPath(), Charset.forName("UTF-8")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -73,7 +71,7 @@ public class TextFileHelper {
 
         Path outFile = Paths.get(System.getProperty("user.dir")+"/test.txt");
         try {
-            Files. write(outFile, mergedText, Charset.forName("windows-1251"));
+            Files. write(outFile, mergedText, Charset.forName("UTF-8"));
         } catch (IOException e) {
             e.printStackTrace();
         }
