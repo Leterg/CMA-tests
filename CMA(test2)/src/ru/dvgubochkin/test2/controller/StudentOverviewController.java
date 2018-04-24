@@ -5,7 +5,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.stage.FileChooser;
 import ru.dvgubochkin.test2.Main;
 import ru.dvgubochkin.test2.model.Student;
 
@@ -19,7 +18,7 @@ public class StudentOverviewController {
     @FXML
     private TableColumn<Student, String> lastNameColumn;
     @FXML
-    private TableColumn<Student, String> uuidNameColumn;
+    private TableColumn<Student, Integer> idColumn;
     @FXML
     private Label firstNameLabel;
     @FXML
@@ -31,7 +30,7 @@ public class StudentOverviewController {
     @FXML
     private Label studyGroupLabel;
     @FXML
-    private Label uuidLabel;
+    private Label idLabel;
     @FXML
     private Button deleteButton;
 
@@ -41,7 +40,7 @@ public class StudentOverviewController {
         // Инициализация таблицы студентов с двумя столбцами.
         studygroupColumb.setCellValueFactory(cellData -> cellData.getValue().studyGroupProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-        uuidNameColumn.setCellValueFactory(cellData -> cellData.getValue().uuidProperty());
+        idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
 
         showStudentDetails(null);
 
@@ -64,7 +63,7 @@ public class StudentOverviewController {
             patronymicLabel.setText(student.getPatronymic());
             birthdayLabel.setText(student.getBirthday());
             studyGroupLabel.setText(student.getStudyGroup());
-            uuidLabel.setText(student.getUuid());
+            idLabel.setText(Integer.toString(student.getId()));
 
             deleteButton.setDisable(false);
 
@@ -75,7 +74,7 @@ public class StudentOverviewController {
             patronymicLabel.setText("");
             birthdayLabel.setText("");
             studyGroupLabel.setText("");
-            uuidLabel.setText("");
+            idLabel.setText("");
 
             deleteButton.setDisable(true);
         }
@@ -84,7 +83,7 @@ public class StudentOverviewController {
     private void handleDeleteStudent() {
         // Удаляем студента из базы
         Student selectedStudent = studentTable.getSelectionModel().getSelectedItem();
-        main.db.deleteStudent(selectedStudent.getUuid());
+        main.db.deleteStudent(selectedStudent.getId());
         main.updateUI();
     }
     @FXML

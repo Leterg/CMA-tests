@@ -17,12 +17,12 @@ import ru.dvgubochkin.test2.controller.StudentOverviewController;
 import java.io.IOException;
 
 public class Main extends Application {
+    /* При запуске программы база данных появится в той же директории что и Jar */
 
     private Stage primaryStage;
     private ObservableList<Student> studentData = FXCollections.observableArrayList();
 
     public StudentBaseHelper db;
-
     public Main(){
         // развёртываем базу данных в директории с приложением
         db = new StudentBaseHelper();

@@ -1,5 +1,7 @@
 package ru.dvgubochkin.test2.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -10,19 +12,19 @@ public class Student {
     private StringProperty patronymic;
     private StringProperty birthday;
     private StringProperty studyGroup;
-    private StringProperty uuid;
+    private IntegerProperty id;
 
     public Student(){
-        this(null,null,null,null,null,null);
+        this(null,null,null,null,null,0);
     }
 
-    public Student(String firstName, String lastName, String patronymic, String birthday, String studygroup, String uuid) {
+    public Student(String firstName, String lastName, String patronymic, String birthday, String studygroup, Integer id) {
     this.firstName = new SimpleStringProperty(firstName);
     this.lastName = new SimpleStringProperty(lastName);
     this.patronymic = new SimpleStringProperty(patronymic);
     this.birthday = new SimpleStringProperty(birthday);
     this.studyGroup = new SimpleStringProperty(studygroup);
-    this.uuid = new SimpleStringProperty(uuid);
+    this.id = new SimpleIntegerProperty(id);
     }
 
     public String getFirstName() {
@@ -85,16 +87,16 @@ public class Student {
         return studyGroup;
     }
 
-    public String getUuid() {
-        return uuid.get();
+    public Integer getId() {
+        return id.get();
     }
 
-    public void setUuid(String uuid) {
-        this.uuid.set(uuid) ;
+    public void setId(Integer id) {
+        this.id.set(id) ;
     }
 
-    public StringProperty uuidProperty() {
-        return uuid;
+    public IntegerProperty idProperty() {
+        return id;
     }
 
 }

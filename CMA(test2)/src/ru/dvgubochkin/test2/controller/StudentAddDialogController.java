@@ -1,14 +1,11 @@
 package ru.dvgubochkin.test2.controller;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ru.dvgubochkin.test2.model.Student;
-
-import java.util.UUID;
 
 public class StudentAddDialogController {
 
@@ -54,7 +51,6 @@ public class StudentAddDialogController {
             student.setPatronymic(patronymicField.getText());
             student.setBirthday(birthdayField.getText());
             student.setStudyGroup(studyGroupBox.getSelectionModel().getSelectedItem());
-            student.setUuid(UUID.randomUUID().toString());
 
             okClicked = true;
             dialogStage.close();

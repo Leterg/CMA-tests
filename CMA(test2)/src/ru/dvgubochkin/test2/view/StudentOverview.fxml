@@ -22,7 +22,7 @@
                     <columns>
                       <TableColumn fx:id="studygroupColumb" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" resizable="false" text="Группа" />
                       <TableColumn fx:id="lastNameColumn" maxWidth="-1.0" minWidth="200.0" prefWidth="300.0" text="Фамилия студента" />
-                        <TableColumn fx:id="uuidNameColumn" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="300.0" text="Уникальный номер" />
+                        <TableColumn fx:id="idColumn" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="300.0" text="Уникальный номер" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -58,7 +58,7 @@
                         <Label fx:id="patronymicLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label fx:id="birthdayLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label fx:id="studyGroupLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label fx:id="uuidLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="idLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <HBox alignment="CENTER" GridPane.columnIndex="1">
                            <children>
                               <Button mnemonicParsing="false" onAction="#handleAddStudent" text="Добавить" HBox.hgrow="ALWAYS">
