@@ -6,23 +6,18 @@ import ru.dvgubochkin.test2.model.Student;
 
 import java.sql.*;
 
-/** Если нет колонки, возможно база стараная или от не та база( поэтому отсутствует колонки)
- *  2 значения в 6 колонке..
- * */
 public class StudentBaseHelper  {
+
+
+    private String url;
     public String getUrl() {
         return url;
     }
-
     public void setUrl(String url) {
         this.url = url;
     }
 
-
-    private String url;
-
     ObservableList<Student> studentData = FXCollections.observableArrayList();
-
 
     public void createNewDatabase(){
         try (Connection conn = DriverManager.getConnection(url)) {
@@ -33,6 +28,7 @@ public class StudentBaseHelper  {
             System.out.println(e.getMessage());
         }
     }
+
     public void createNewTable() {
         String sql = "CREATE TABLE IF NOT EXISTS students (\n"
                 + "	firstname NOT NULL,\n"
@@ -51,6 +47,7 @@ public class StudentBaseHelper  {
             System.out.println(e.getMessage());
         }
     }
+
     private Connection connect() {
         Connection conn = null;
         try {
@@ -60,6 +57,7 @@ public class StudentBaseHelper  {
         }
         return conn;
     }
+
     public void insertStudent(Student student) {
         String sql = "INSERT INTO students(firstname, lastname, patronymic, birthday, studуgroup, uuid) VALUES(?,?,?,?,?,?)";
 
@@ -76,6 +74,7 @@ public class StudentBaseHelper  {
             System.out.println(e.getMessage());
         }
     }
+
     public ObservableList<Student> selectAll(){
         String sql = "SELECT firstname, lastname, patronymic, birthday, studуgroup, uuid FROM students";
 
