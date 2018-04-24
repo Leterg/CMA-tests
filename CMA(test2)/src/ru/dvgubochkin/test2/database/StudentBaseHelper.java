@@ -31,12 +31,12 @@ public class StudentBaseHelper  {
 
     public void createNewTable() {
         String sql = "CREATE TABLE IF NOT EXISTS students (\n"
+                + "	id integer PRIMARY KEY,\n"
                 + "	firstname NOT NULL,\n"
                 + "	lastname NOT NULL,\n"
                 + "	patronymic NOT NULL,\n"
                 + "	birthday NOT NULL,\n"
-                + "	studуgroup NOT NULL,\n"
-                + "	uuid NOT NULL\n"
+                + "	studуgroup NOT NULL\n"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
@@ -59,7 +59,7 @@ public class StudentBaseHelper  {
     }
 
     public void insertStudent(Student student) {
-        String sql = "INSERT INTO students(firstname, lastname, patronymic, birthday, studуgroup, uuid) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO students(firstname, lastname, patronymic, birthday, studуgroup) VALUES(?,?,?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -68,7 +68,6 @@ public class StudentBaseHelper  {
             pstmt.setString(3, student.getPatronymic());
             pstmt.setString(4, student.getBirthday());
             pstmt.setString(5, student.getStudyGroup());
-            pstmt.setString(6, student.getUuid());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -76,7 +75,7 @@ public class StudentBaseHelper  {
     }
 
     public ObservableList<Student> selectAll(){
-        String sql = "SELECT firstname, lastname, patronymic, birthday, studуgroup, uuid FROM students";
+        String sql = "SELECT id, firstname, lastname, patronymic, birthday, studуgroup  FROM students";
 
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
@@ -89,7 +88,7 @@ public class StudentBaseHelper  {
                         rs.getString("patronymic"),
                         rs.getString("birthday"),
                         rs.getString("studуgroup"),
-                        rs.getString("uuid"))
+                        rs.getInt("id"))
                 );
             }
         } catch (SQLException e) {
@@ -98,13 +97,13 @@ public class StudentBaseHelper  {
         return studentData;
     }
 
-    public void deleteStudent(String uuid) {
-        String sql = "DELETE FROM students WHERE uuid = ?";
+    public void deleteStudent(int id) {
+        String sql = "DELETE FROM students WHERE id = ?";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, uuid);
+            pstmt.setInt(1, id);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
