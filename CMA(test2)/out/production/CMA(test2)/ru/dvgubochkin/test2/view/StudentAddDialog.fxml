@@ -35,7 +35,7 @@
             <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="patronymicField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="birthdayField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ComboBox fx:id="studyGroupBox" prefHeight="26.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+            <ComboBox fx:id="studyGroupBox" prefHeight="26.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <HBox alignment="CENTER" layoutX="197.1875" layoutY="241.0" spacing="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
