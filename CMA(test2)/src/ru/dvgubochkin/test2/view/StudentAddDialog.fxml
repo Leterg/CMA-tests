@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,12 +11,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="342.0" prefWidth="380.0" styleClass="background" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.dvgubochkin.test2.controller.StudentAddDialogController">
+<AnchorPane prefHeight="350.0" styleClass="background" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.dvgubochkin.test2.controller.StudentAddDialogController">
    <children>
-      <GridPane layoutX="-16.0" layoutY="31.0" prefHeight="253.0" prefWidth="360.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <GridPane layoutX="-16.0" layoutY="31.0" prefHeight="250.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="120.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="240.0" />
+            <ColumnConstraints halignment="RIGHT" />
+            <ColumnConstraints halignment="LEFT" maxWidth="200.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -24,22 +26,28 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label text="Имя: " GridPane.halignment="RIGHT" />
-            <Label text="Фамилия: " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-            <Label text="Отчество: " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-            <Label text="Дата рождения: " GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-            <Label text="Группа: " GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <Label text="Имя: " />
+            <Label text="Фамилия: " GridPane.rowIndex="1" />
+            <Label text="Отчество: " GridPane.rowIndex="2" />
+            <Label text="Дата рождения: " GridPane.rowIndex="3" />
+            <Label text="Группа: " GridPane.rowIndex="4" />
             <TextField fx:id="firstNameField" GridPane.columnIndex="1" />
             <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="patronymicField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="birthdayField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="studyGroupField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="studyGroupBox" prefHeight="26.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <HBox layoutX="197.1875" layoutY="241.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <HBox alignment="CENTER" layoutX="197.1875" layoutY="241.0" spacing="2.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
-            <Button layoutX="197.1875" layoutY="241.0" mnemonicParsing="false" onAction="#handleOk" prefWidth="110.0" text="Добавить" />
-            <Button layoutX="249.375" layoutY="241.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="110.0" text="Отменить" />
+            <Button layoutX="197.1875" layoutY="241.0" mnemonicParsing="false" onAction="#handleOk" prefWidth="125.0" text="Добавить">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
+            <Button layoutX="249.375" layoutY="241.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="125.0" text="Отменить">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </children>

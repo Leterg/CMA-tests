@@ -62,12 +62,12 @@ public class Main extends Application {
             AnchorPane page = (AnchorPane) loader.load();
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Добавьте новго студента");
+            dialogStage.setTitle("Добавьте нового студента");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
-
+            dialogStage.setResizable(false);
             StudentAddDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setStudent(student);

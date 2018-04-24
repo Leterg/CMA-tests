@@ -1,6 +1,8 @@
 package ru.dvgubochkin.test2.controller;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ru.dvgubochkin.test2.model.Student;
@@ -18,7 +20,7 @@ public class StudentAddDialogController {
     @FXML
     private TextField birthdayField;
     @FXML
-    private TextField studyGroupField;
+    private ComboBox<String> studyGroupBox;
 
     private Stage dialogStage;
     private Student student;
@@ -26,6 +28,10 @@ public class StudentAddDialogController {
 
     @FXML
     private void initialize() {
+        // Инициализируем список групп
+        String[] groupList = {"Учебная группа A01", "Учебная группа A02","Учебная группа A03",
+                                "Учебная группа B01", "Учебная группа B02"};
+        studyGroupBox.getItems().setAll(groupList);
     }
 
     public void setDialogStage(Stage dialogStage) {
@@ -44,7 +50,7 @@ public class StudentAddDialogController {
         student.setLastName(lastNameField.getText());
         student.setPatronymic(patronymicField.getText());
         student.setBirthday(birthdayField.getText());
-        student.setStudyGroup(studyGroupField.getText());
+        student.setStudyGroup(studyGroupBox.getSelectionModel().getSelectedItem());
         student.setUuid(UUID.randomUUID().toString());
 
         okClicked = true;
